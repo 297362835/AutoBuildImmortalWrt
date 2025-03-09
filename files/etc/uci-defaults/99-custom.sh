@@ -72,15 +72,15 @@ elif [ "$count" -gt 1 ]; then
    # 多网口设备 支持修改为别的ip地址
    uci set network.lan.ipaddr='192.168.5.1'
    uci set network.lan.netmask='255.255.255.0'
-   echo "set 192.168.100.1 at $(date)" >> $LOGFILE
+   echo "set 192.168.5.1 at $(date)" >> $LOGFILE
    # 判断是否启用 PPPoE
    echo "print enable_pppoe value=== $enable_pppoe" >> $LOGFILE
    if [ "$enable_pppoe" = "yes" ]; then
       echo "PPPoE is enabled at $(date)" >> $LOGFILE
       # 设置ipv4宽带拨号信息
       uci set network.wan.proto='pppoe'
-      uci set network.wan.username=990003108487
-      uci set network.wan.password=665684
+      uci set network.wan.username='990003108487'
+      uci set network.wan.password='665684'
       uci set network.wan.peerdns='1'
       uci set network.wan.auto='1'
       # 设置ipv6 默认不配置协议
